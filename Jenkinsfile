@@ -13,9 +13,7 @@ pipeline {
 
                 // To run Maven on a Windows agent, use
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
-            }
-
-            
+            }            
         }
         stage('Test') {
             steps {
@@ -23,15 +21,14 @@ pipeline {
                 // To run Maven on a Windows agent, use
                 bat "mvn test"
             }
+        }
             
         stage('StaticScan') {
             steps {
                
                 // To run Maven on a Windows agent, use
                 bat "mvn sonar:sonar"
-            }
-
-            
-        }
+            }           
+                        }
     }
 }
